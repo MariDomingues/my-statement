@@ -4,7 +4,7 @@ project:
 feign:
   client:
     url:
-      pluggy: https://api.pluggy.ai/auth
+      pluggy: https://api.pluggy.ai
     config:
       default:
         connectTimeout: 10000
