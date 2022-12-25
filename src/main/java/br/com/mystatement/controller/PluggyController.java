@@ -9,7 +9,10 @@ import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,13 +25,13 @@ public class PluggyController {
     private PluggyService pluggyService;
 
     @GetMapping
-    @ApiOperation(value = "")
+    @ApiOperation(value = "Método responsável por obter a ApiKey")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "")
     })
-    public PluggyResponseDto getAuth() {
+    public PluggyResponseDto getAuth(@RequestHeader String path) {
 
         log.info("");
-        return pluggyService.getAuth();
+        return pluggyService.getAuth(path);
     }
 }
