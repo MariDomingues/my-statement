@@ -36,7 +36,9 @@ public class ReadTxtService {
 
             Arrays.stream(constCredentialsEnums).toList().forEach(c -> {
                 String stringStream = lines.stream().filter(l -> l.contains(c.getName())).findFirst().get();
-                map.put(c, formatCredentials(stringStream));
+
+                if (!map.containsKey(c))
+                    map.put(c, formatCredentials(stringStream));
             });
 
             reader.close();
