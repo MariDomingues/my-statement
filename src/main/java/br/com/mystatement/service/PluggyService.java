@@ -4,6 +4,7 @@ import br.com.mystatement.client.PluggyClient;
 import br.com.mystatement.domain.dto.PluggyApiKeyRequestDto;
 import br.com.mystatement.domain.dto.PluggyApiKeyResponseDto;
 import br.com.mystatement.domain.dto.PluggyConnectorsResponseDto;
+import br.com.mystatement.domain.dto.PluggyConnectorsResultsResponseDto;
 import br.com.mystatement.domain.dto.PluggyTokenResponseDto;
 import br.com.mystatement.domain.enums.ConstCredentialsEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class PluggyService {
         PluggyApiKeyResponseDto apiKey = pluggyClient.getApiKey(requestDto);
         PluggyTokenResponseDto token = pluggyClient.getToken(apiKey.getApiKey());
         PluggyConnectorsResponseDto connectors = pluggyClient.getConnectors(token.getAccessToken(), BR, PERSONAL_BANK.getName());
+        PluggyConnectorsResultsResponseDto connector = pluggyClient.getConnector(token.getAccessToken(), connectors.getResults().stream().findFirst().get().getId());
 
         return apiKey;
     }
