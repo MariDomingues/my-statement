@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PluggyResponseDto {
+public class PluggyTokenResponseDto {
 
-    private String apiKey;
+    private String accessToken;
 }

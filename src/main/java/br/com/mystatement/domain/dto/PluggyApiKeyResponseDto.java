@@ -7,8 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PluggyRequestDto {
+public class PluggyApiKeyResponseDto {
 
-    private String clientId;
-    private String clientSecret;
+    private String apiKey;
 }

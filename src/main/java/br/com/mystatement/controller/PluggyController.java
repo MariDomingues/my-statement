@@ -1,6 +1,6 @@
 package br.com.mystatement.controller;
 
-import br.com.mystatement.domain.dto.PluggyResponseDto;
+import br.com.mystatement.domain.dto.PluggyApiKeyResponseDto;
 import br.com.mystatement.service.PluggyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ public class PluggyController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "")
     })
-    public PluggyResponseDto getAuth(@RequestHeader String path) {
+    public PluggyApiKeyResponseDto getAuth(@RequestHeader String path) {
 
         log.info("");
         return pluggyService.getAuth(path);
