@@ -1,0 +1,42 @@
+project:
+  artifactId: my-statement
+
+feign:
+  client:
+    url:
+      pluggy: https://api.pluggy.ai/auth
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  httpclient:
+    disableSslValidation: true
+    enabled: false
+  okhttp:
+    enabled: true
+
+my-statement:
+  base:
+    package: br.com.mystatement.controller
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+    show-details: ALWAYS
+    info:
+      enabled: true
+    gateway:
+      enabled: true
+
+info:
+  app:
+    description: '@project.description@'
+    encoding: '@project.build.sourceEncoding@'
+    java.version: '@java.version@'
+    name: '@project.name@'
+    version: '@project.version@'
